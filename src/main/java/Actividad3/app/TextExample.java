@@ -2,6 +2,7 @@ package main.java.Actividad3.app;
 
 import main.java.Actividad3.service.TextService;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class TextExample {
@@ -15,6 +16,8 @@ public class TextExample {
         System.out.println("Introduce el texto a guardar en el archivo: ");
         String text = scanner.nextLine();
 
-        textService.createFile(name, text);
+        File file = textService.createFile(name, text);
+
+        textService.readFile(file);
     }
 }

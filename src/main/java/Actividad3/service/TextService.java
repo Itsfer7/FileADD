@@ -7,10 +7,10 @@ import java.io.*;
 
 public class TextService {
 
-    private final TextDAO textDAO = (TextDAO) new TextDAOImpl();
+    private final TextDAO textDAO = new TextDAOImpl();
 
-    public void createFile(String name, String text) {
-        File file = new File("/home/ivan/" + name + ".txt");
+    public File createFile(String name, String text) {
+        File file = textDAO.createFile(name, text);
         try {
             Writer writer = new FileWriter(file);
             writer.write(text);
@@ -18,6 +18,7 @@ public class TextService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return file;
     }
 
     public void readFile(File file){

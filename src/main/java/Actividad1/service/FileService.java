@@ -6,7 +6,6 @@ import main.java.Actividad1.entity.FileEntity;
 
 import java.io.File;
 
-public class FileService {
 
     /*public File returnFile() {
         String pathname = "/home/ivan";
@@ -64,10 +63,11 @@ public class FileService {
         fileExample.checkDirectory(file);
         fileExample.listFiles(file);
     }*/
-    
 
 
-    private final FileDAO filedao = (FileDAO) new FileDAOImpl();
+public class FileService {
+
+    private final FileDAO filedao = new FileDAOImpl();
 
     public void listFiles() {
         File[] files = filedao.listFiles("/home/ivan");
