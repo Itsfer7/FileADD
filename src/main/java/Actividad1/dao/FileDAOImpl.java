@@ -1,0 +1,11 @@
+package main.java.Actividad1.dao;
+
+import java.io.File;
+
+public class FileDAOImpl {
+
+    public File[] listFiles(String directory) {
+        File path = new File(directory);
+        return path.listFiles();
+    }
+}
