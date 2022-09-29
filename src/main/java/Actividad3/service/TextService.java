@@ -36,12 +36,13 @@ public class TextService {
 
     public void readFile(File file){
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+            BufferedReader reader1 = textDAO.readFile(file);
             String line;
-            while ((line = reader.readLine()) != null) {
+            System.out.println("Leyendo el archivo: ");
+            while ((line = reader1.readLine()) != null) {
                 System.out.println(line);
             }
-            reader.close();
+            reader1.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

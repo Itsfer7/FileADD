@@ -1,8 +1,10 @@
 package main.java.Actividad3.dao;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 
 public interface TextDAO {
     File createFile(String name, String text);
-    void readFile(File file);
+    BufferedReader readFile(File file) throws FileNotFoundException;
 }

@@ -1,17 +1,20 @@
 package main.java.Actividad3.dao;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 public class TextDAOImpl implements TextDAO {
 
 
     @Override
     public File createFile(String name, String text) {
-        return new File("/home/ivan/" + name + ".txt");
+        return new File("/home/ivan/" + name);
     }
 
     @Override
-    public void readFile(File file) {
-        System.out.println("Reading file: " + file.getName());
+    public BufferedReader readFile(File file) throws FileNotFoundException {
+        return new BufferedReader(new FileReader(file));
     }
 }

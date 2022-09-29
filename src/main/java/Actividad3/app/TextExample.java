@@ -1,9 +1,7 @@
 package main.java.Actividad3.app;
 
 import main.java.Actividad3.service.TextService;
-
 import java.io.File;
-import java.util.Scanner;
 
 public class TextExample {
 
