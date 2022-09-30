@@ -32,11 +32,11 @@ public class FileService {
         return requestedPosition;
     }
 
-    public void readRequestedInt(RandomAccessFile file, Integer requestPosition) throws IOException {
-        RandomAccessFile reader = fileDAO.readRequestedInt(file, requestPosition);
+    public void readRequestedInt(RandomAccessFile file, Integer requestedPosition) throws IOException {
+        RandomAccessFile reader = fileDAO.readRequestedInt(file, requestedPosition);
         try {
-            reader.seek((requestPosition - 1) * 4L);
-            System.out.println("El número en la posición " + requestPosition + " es: " + reader.readInt());
+            reader.seek(requestedPosition - 1);
+            System.out.println("El número en la posición " + requestedPosition + " es: " + reader.readInt());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -57,6 +57,17 @@ public class FileService {
         return newInt;
     }
 
+    public void updateIntegerIntoFileOnGivenPosition(RandomAccessFile file, Integer requestPosition, Integer newInt) throws FileNotFoundException {
+        RandomAccessFile reader = fileDAO.updateIntegerIntoFileOnGivenPosition(file, requestPosition, newInt);
+        try {
+            reader.seek(requestPosition - 1);
+            reader.writeInt(newInt);
+            System.out.println("El número en la posición " + requestPosition + " ahora es: " + newInt);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void readFile(RandomAccessFile file) throws FileNotFoundException {
         RandomAccessFile reader = fileDAO.readFile(file);
         System.out.println("Leyendo el fichero...");
@@ -64,20 +75,9 @@ public class FileService {
         try {
             reader.seek(0);
             while (reader.getFilePointer() < reader.length()) {
-                System.out.println((i) + ". " + file.readInt());
+                System.out.println(i + ". " + file.readInt());
                 i++;
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void insertIntegerIntoFileOnGivenPosition(RandomAccessFile file, Integer requestPosition, Integer newInt) throws FileNotFoundException {
-        RandomAccessFile reader = fileDAO.insertIntegerIntoFileOnGivenPosition(file, requestPosition, newInt);
-        try {
-            reader.seek((requestPosition - 1) * 4L);
-            reader.writeInt(newInt);
-            System.out.println("El número en la posición " + requestPosition + " ahora es: " + newInt);
         } catch (IOException e) {
             e.printStackTrace();
         }

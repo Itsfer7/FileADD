@@ -10,9 +10,9 @@ public interface FileDAO {
 
     Integer requestPosition(RandomAccessFile file) throws IOException;
 
-    RandomAccessFile readRequestedInt(RandomAccessFile file, Integer requestPosition) throws IOException;
+    RandomAccessFile readRequestedInt(RandomAccessFile file, Integer requestedPosition) throws IOException;
 
     Integer requestNewInt();
 
-    RandomAccessFile insertIntegerIntoFileOnGivenPosition(RandomAccessFile file, Integer requestPosition, Integer newInt) throws FileNotFoundException;
+    RandomAccessFile updateIntegerIntoFileOnGivenPosition(RandomAccessFile file, Integer requestPosition, Integer newInt) throws FileNotFoundException;
 }
