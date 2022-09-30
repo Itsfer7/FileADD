@@ -12,10 +12,11 @@ public class FileExample {
 
         FileService fileService = new FileService();
 
-        Integer newInt = fileService.requestNewInt();
-
         fileService.readFile(file);
-        fileService.editFile(file, newInt);
+        Integer requestPosition = fileService.requestPosition(file);
+        fileService.readRequestedInt(file, requestPosition);
+        Integer newInt = fileService.requestNewInt();
+        fileService.editFile(file, requestPosition, newInt);
         fileService.readFile(file);
     }
 }

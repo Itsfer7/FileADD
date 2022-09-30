@@ -6,5 +6,7 @@ public interface FileDAO {
 
     RandomAccessFile readFile(RandomAccessFile file) throws FileNotFoundException;
 
-    RandomAccessFile editFile(RandomAccessFile file, int newInt) throws FileNotFoundException;
+    Integer requestNewInt();
+
+    RandomAccessFile editFile(RandomAccessFile file, Integer newInt) throws FileNotFoundException;
 }
