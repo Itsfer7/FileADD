@@ -38,7 +38,7 @@ public class FileService {
             reader.seek(requestedPosition - 1);
             System.out.println("El número en la posición " + requestedPosition + " es: " + reader.readInt());
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException();
         }
     }
 
@@ -64,7 +64,7 @@ public class FileService {
             reader.writeInt(newInt);
             System.out.println("El número en la posición " + requestPosition + " ahora es: " + newInt);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException();
         }
     }
 
@@ -79,7 +79,7 @@ public class FileService {
                 i++;
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException();
         }
     }
 }

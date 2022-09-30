@@ -36,7 +36,7 @@ public class FileService {
                 i++;
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException();
         }
     }
 
@@ -47,7 +47,7 @@ public class FileService {
             reader.writeInt(newInt);
             reader.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException();
         }
     }
 }
