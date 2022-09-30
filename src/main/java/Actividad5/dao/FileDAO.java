@@ -14,5 +14,5 @@ public interface FileDAO {
 
     Integer requestNewInt();
 
-    RandomAccessFile insertIntegerIntoFileIntoGivenPosition(RandomAccessFile file, Integer requestPosition, Integer newInt) throws FileNotFoundException;
+    RandomAccessFile insertIntegerIntoFileOnGivenPosition(RandomAccessFile file, Integer requestPosition, Integer newInt) throws FileNotFoundException;
 }

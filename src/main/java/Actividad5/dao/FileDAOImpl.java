@@ -27,7 +27,7 @@ public class FileDAOImpl implements FileDAO {
     }
 
     @Override
-    public RandomAccessFile insertIntegerIntoFileIntoGivenPosition(RandomAccessFile file, Integer requestPosition, Integer newInt) throws FileNotFoundException {
+    public RandomAccessFile insertIntegerIntoFileOnGivenPosition(RandomAccessFile file, Integer requestPosition, Integer newInt) throws FileNotFoundException {
         return new RandomAccessFile("enteros.dat", "rw");
     }
 }
