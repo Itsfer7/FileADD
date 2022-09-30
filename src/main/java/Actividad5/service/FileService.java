@@ -72,8 +72,8 @@ public class FileService {
         }
     }
 
-    public void editFile(RandomAccessFile file, Integer requestPosition, Integer newInt) throws FileNotFoundException {
-        RandomAccessFile reader = fileDAO.editFile(file, requestPosition, newInt);
+    public void insertIntegerIntoFileIntoGivenPosition(RandomAccessFile file, Integer requestPosition, Integer newInt) throws FileNotFoundException {
+        RandomAccessFile reader = fileDAO.insertIntegerIntoFileIntoGivenPosition(file, requestPosition, newInt);
         try {
             reader.seek((requestPosition - 1) * 4L);
             reader.writeInt(newInt);

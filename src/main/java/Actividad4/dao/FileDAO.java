@@ -8,5 +8,5 @@ public interface FileDAO {
 
     Integer requestNewInt();
 
-    RandomAccessFile editFile(RandomAccessFile file, Integer newInt) throws FileNotFoundException;
+    RandomAccessFile insertIntegerIntoFile(RandomAccessFile file, Integer newInt) throws FileNotFoundException;
 }

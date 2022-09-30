@@ -14,7 +14,7 @@ public class FileExample {
 
         fileService.readFile(file);
         Integer newInt = fileService.requestNewInt();
-        fileService.editFile(file, newInt);
+        fileService.insertIntegerIntoFile(file, newInt);
         fileService.readFile(file);
     }
 }

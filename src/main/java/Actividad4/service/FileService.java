@@ -12,7 +12,7 @@ public class FileService {
 
     public Integer requestNewInt() {
         Scanner scanner = new Scanner(System.in);
-        Integer newInt = null;
+        Integer newInt = fileDAO.requestNewInt();
         System.out.println("Introduce un número entero para añadirlo al fichero: ");
         while (newInt == null) {
             try {
@@ -40,8 +40,8 @@ public class FileService {
         }
     }
 
-    public void editFile(RandomAccessFile file, Integer newInt) throws FileNotFoundException {
-        RandomAccessFile reader = fileDAO.editFile(file, newInt);
+    public void insertIntegerIntoFile(RandomAccessFile file, Integer newInt) throws FileNotFoundException {
+        RandomAccessFile reader = fileDAO.insertIntegerIntoFile(file, newInt);
         try {
             reader.seek(file.length());
             reader.writeInt(newInt);

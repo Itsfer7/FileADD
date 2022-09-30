@@ -16,7 +16,7 @@ public class FileExample {
         Integer requestPosition = fileService.requestPosition(file);
         fileService.readRequestedInt(file, requestPosition);
         Integer newInt = fileService.requestNewInt();
-        fileService.editFile(file, requestPosition, newInt);
+        fileService.insertIntegerIntoFileIntoGivenPosition(file, requestPosition, newInt);
         fileService.readFile(file);
     }
 }
