@@ -6,8 +6,7 @@ public class FileDAOImpl implements FileDAO {
 
 
     @Override
-    public FileInputStream readFile(FileInputStream file) {
-        return file;
+    public void readFile(String file) throws FileNotFoundException {
     }
 
     @Override
@@ -19,4 +18,5 @@ public class FileDAOImpl implements FileDAO {
     public FileOutputStream insertIntegerIntoFile(FileOutputStream file, Integer newInt) throws FileNotFoundException {
         return new FileOutputStream("enteros.dat");
     }
+
 }

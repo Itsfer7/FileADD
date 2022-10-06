@@ -4,10 +4,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.RandomAccessFile;
+import java.nio.file.Path;
 
 public interface FileDAO {
 
-    FileInputStream readFile(FileInputStream file) throws FileNotFoundException;
+    void readFile(String file) throws FileNotFoundException;
 
     Integer requestNewInt();
 

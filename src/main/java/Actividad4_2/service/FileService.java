@@ -26,10 +26,9 @@ public class FileService {
         return newInt;
     }
 
-    public void readFile(FileInputStream file) throws FileNotFoundException {
-        FileInputStream reader = fileDAO.readFile(file);
+    public void readFile(String path) throws FileNotFoundException {
         System.out.println("Leyendo el fichero...");
-        try {
+        try (FileInputStream reader = new FileInputStream(new File(path))) {
             int content;
             while ((content = reader.read()) != -1) {
                 System.out.println((char)content);
@@ -40,6 +39,7 @@ public class FileService {
     }
 
     public void insertIntegerIntoFile(FileOutputStream file, Integer newInt) throws FileNotFoundException {
+
         FileOutputStream writer = fileDAO.insertIntegerIntoFile(file, newInt);
         try {
             writer.write(newInt);
