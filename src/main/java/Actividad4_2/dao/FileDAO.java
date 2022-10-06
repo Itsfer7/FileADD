@@ -12,5 +12,5 @@ public interface FileDAO {
 
     Integer requestNewInt();
 
-    FileOutputStream insertIntegerIntoFile(FileOutputStream file, Integer newInt) throws FileNotFoundException;
+    void insertIntegerIntoFile(Integer newInt) throws FileNotFoundException;
 }

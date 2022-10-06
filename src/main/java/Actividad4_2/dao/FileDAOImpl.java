@@ -15,8 +15,7 @@ public class FileDAOImpl implements FileDAO {
     }
 
     @Override
-    public FileOutputStream insertIntegerIntoFile(FileOutputStream file, Integer newInt) throws FileNotFoundException {
-        return new FileOutputStream("enteros.dat");
+    public void insertIntegerIntoFile(Integer newInt) {
     }
 
 }

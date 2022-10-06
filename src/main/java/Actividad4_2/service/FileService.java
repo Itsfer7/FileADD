@@ -28,22 +28,33 @@ public class FileService {
 
     public void readFile(String path) throws FileNotFoundException {
         System.out.println("Leyendo el fichero...");
-        try (FileInputStream reader = new FileInputStream(new File(path))) {
-            int content;
-            while ((content = reader.read()) != -1) {
-                System.out.println((char)content);
+        try (FileInputStream reader = new FileInputStream(path)) {
+            byte[] bytes = reader.readAllBytes();
+            for (byte b : bytes) {
+            System.out.print(b + " ");
             }
+            System.out.println();
         } catch (IOException e) {
             throw new RuntimeException();
         }
     }
 
-    public void insertIntegerIntoFile(FileOutputStream file, Integer newInt) throws FileNotFoundException {
+    public void insertIntegerIntoFile(Integer newInt) {
+        System.out.println("Insertando el número " + newInt + " en el fichero...");
 
-        FileOutputStream writer = fileDAO.insertIntegerIntoFile(file, newInt);
-        try {
+        try (FileOutputStream writer = new FileOutputStream("enteros2_copy.dat", true)) {
             writer.write(newInt);
-            writer.close();
+        } catch (IOException e) {
+            throw new RuntimeException();
+        }
+
+        System.out.println("Leyendo el fichero...");
+        try (FileInputStream reader = new FileInputStream("enteros2_copy.dat")) {
+            byte[] bytes = reader.readAllBytes();
+            for (byte b : bytes) {
+                System.out.print(b + " ");
+            }
+            System.out.println();
         } catch (IOException e) {
             throw new RuntimeException();
         }
